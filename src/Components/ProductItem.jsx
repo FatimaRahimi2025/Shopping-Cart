@@ -23,6 +23,9 @@ return(
                     onClick={() => cart.removeItemFromCart(product.id)}>-</Button>
                     </Col>
                 </Form>
+
+                <Button className='my-4' variant='btn btn-light'
+                onClick={() => cart.deleteFromCart(product.id)}>حذف از سبد خرید</Button>
                 </>
             ): (
                 <Button onClick={() => cart.addItemToCart(product.id)} variant='btn  btn-outline-secondary' className='text-white'>افزودن به سبد خرید</Button>
