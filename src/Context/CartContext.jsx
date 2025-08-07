@@ -22,7 +22,7 @@ export function CartProvider({ children }) {
     return quantity
     }
 
-    function addItemToCart(){
+    function addItemToCart(id){
         const quantity = getProductQuantity(id)
 
         if(quantity === 0) {
