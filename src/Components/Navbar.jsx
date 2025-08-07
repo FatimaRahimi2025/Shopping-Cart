@@ -1,16 +1,31 @@
-import {Navbar as Navbars, Button} from 'react-bootstrap';
+
+import { useState } from 'react';
+import {Navbar as Navbars, Button, Modal} from 'react-bootstrap';
 import {BsCart} from 'react-icons/bs'
 
 function Navbar() {
+    const [showModal, setShowModal] = useState(false)
+
+    const handleShow = () => {setShowModal(true)}
+    const handleClose = () => {setShowModal(false)}
     return(
-        <Navbars className='border-bottom border-secondary'>
+        <>
+         <Navbars className='border-bottom border-secondary'>
             <Navbars.Collapse className='justify-content-end'>
-                <Button variant='btn btn-outline-secondary' className='text-white'>
+                <Button onClick={handleShow} variant='btn btn-outline-secondary' className='text-white'>
                      <BsCart className='mx-2'></BsCart>سبد خرید
                 </Button>
                
             </Navbars.Collapse>
         </Navbars>
+        <Modal show={showModal} onHide={handleClose} contentClassName='card-bg' dir="rtl">
+            <Modal.Header closeButton closeVariant='white'>
+                <Modal.Title className='text-white'>سبد خرید</Modal.Title>
+                <Modal.Body className='text-white'>محصول</Modal.Body>
+            </Modal.Header>
+        </Modal>
+        </>
+       
     )
 }
 
